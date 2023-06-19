@@ -482,3 +482,74 @@ function createCharacter2(character: (Mario | Superman)): void {
 
 
 
+
+
+
+
+
+
+// GENERICS 
+// es una variable que recibe la definicion de un tipo de dato
+//  ej: string, number, string[] 
+
+
+
+
+
+// GENERICS EN VARIABLES
+const generic : Array<number> = [2]
+// aqui se envia number como tipo de dato 
+
+
+
+
+
+// GENERICS EN FUNCIONES 
+const lastValue = <T>(arr: Array<T>) => {
+  return arr[arr.length-1]
+}
+
+// enviando el tipo de dato  
+lastValue<string>(["2","3"])
+lastValue<number>([2,3])
+
+
+// no enviando el tipo de dato, cuando se asigne algun valor typescript lo infiere 
+lastValue([false, true])
+
+
+
+// generics con extends 
+const type = <T extends {name:string}>(obj : T) =>{
+  return obj
+}
+
+type({name: "jon", lastname: "jones"})
+
+
+
+
+
+
+
+
+
+
+
+// GENERICS EN INTERFACES 
+interface food<T> {
+  id: T
+  price: T,
+  name: string,
+}
+
+// enviar la definicion de tipo de dato explicitamente 
+const meat: food<number>= {
+  id: 1,
+  price: 70,
+  name: "meat",
+}
+
+
+
+
