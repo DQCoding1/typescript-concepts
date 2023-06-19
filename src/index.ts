@@ -113,7 +113,14 @@ enum ErrorTypes {
 
 
 // INTERFACES / TYPES
-// son moldes que obligan a una variable tener una estructura de datos
+// son moldes que obligan a quien lo use tener una estructura de datos
+// si lo usa una variable debe tener:
+//   - cantidad exacta de propiedades del molde (no mas ni menos)
+//   - tipo de dato exacto ("2" debe ser "2")
+// si lo usa una clase debe tener:
+//   - cantidad de propiedades del molde, y puede agregar más 
+//   - tipo de dato no exacto("2" puede ser "9") porque es string
+
 // Interfaces
 interface Book {
   id: number;
@@ -380,6 +387,40 @@ const newEmp = new Employee("diego", "developer", 4);
 
 
 
+
+
+// DIFFERENCE BETWEEN EXTENDS AND IMPLEMENTS IN CLASSES  
+class Vehicle {
+  price = "10"
+  doesItdrive(){
+    return true
+  }
+}
+
+
+// extends:
+// copia las propiedades y funciones de una clase y las pega en otra
+class Car extends Vehicle{
+
+}
+
+const ford = new Car()
+console.log(ford.doesItdrive())
+
+
+
+
+// implements:
+// obliga que una clase tenga la estructura de datos de un molde(interface, class)
+class Motorbike implements Vehicle {
+  price = "38"
+  doesItdrive(): boolean{
+    return false
+  } 
+}
+
+const yamaha = new Motorbike()
+console.log(yamaha.doesItdrive())
 
 
 
